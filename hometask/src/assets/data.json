@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "header": "AAA",
+      "extraInfo": "AAA",
+      "price": "12"
+    },
+    {
+      "id": 2,
+      "header": "BBB",
+      "extraInfo": "BBB",
+      "price": "23"
+    },
+    {
+      "id": 3,
+      "header": "CCC",
+      "extraInfo": "CCC",
+      "price": "234"
+    }
+  ]
+}
