@@ -36,6 +36,7 @@ export default {
 .flex-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .grid-container p {

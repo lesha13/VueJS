@@ -71,5 +71,25 @@
       "priceChange": "-7.52%"
     },
     {}
+  ],
+  "data2": [
+    {
+      "id": 1,
+      "imgSrc": "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202203080231",
+      "header": "AAPL",
+      "text": "apple"
+    },
+    {
+      "id": 2,
+      "imgSrc": "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202203080231",
+      "header": "AMZN",
+      "text": "amazon"
+    },
+    {
+      "id": 3,
+      "imgSrc": "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202203080231",
+      "header": "TSLA",
+      "text": "tesla"
+    }
   ]
 }
