@@ -1,26 +1,18 @@
 <template>
   <div>
-    <router-link to="/">Home</router-link>
-    <router-link to="/account">Account</router-link>
-    <router-link to="/about">About</router-link>
+    <h1> Stocks </h1>
+    <div class="navigator">
+      <router-link to="/" class="navigator-elem">Home</router-link>
+      <router-link to="/account" class="navigator-elem">Account</router-link>
+      <router-link to="/about" class="navigator-elem">About</router-link>
+    </div>
     <router-view></router-view>
-    <stocks-table :stocksData="getStocks" />
   </div>
 </template>
 
 <script>
-import StocksTable from "./components/StocksTable/index.vue";
-// import stocksData from "./assets/data.json";
-import { mapGetters } from "vuex"
-
 export default {
   name: "App",
-  components: {
-    StocksTable,
-  },
-  computed: {
-    ...mapGetters(["getStocks"])
-  },
 };
 </script>
 
@@ -28,5 +20,20 @@ export default {
 * {
   margin: 0px;
   padding: 0px;
+}
+
+.navigator {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  min-width: 300px;
+  border-bottom: 1px solid grey;
+}
+
+.navigator-elem {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 </style>

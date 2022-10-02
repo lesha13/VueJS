@@ -1,13 +1,22 @@
 <template>
     <div>
-        <h1>Home</h1>
+        <stocks-table :stocksData="getStocks" />
     </div>
 </template>
 
 <script>
-    export default {
-        name: "HomePage"
-    }
+import StocksTable from "@/components/StocksTable/index.vue";
+import { mapGetters } from "vuex"
+
+export default {
+    name: "HomePage",
+    components: {
+        StocksTable,
+    },
+    computed: {
+        ...mapGetters(["getStocks"])
+    },
+}
 </script>
 
 <style lang="scss" scoped>
