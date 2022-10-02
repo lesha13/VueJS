@@ -1,5 +1,5 @@
 <template>
-  <div class="grid-container">
+  <div class="stocks-grid-container">
     <p class="ticker">
       {{ ticker }}
     </p>
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="css">
-.grid-container {
+.stocks-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 

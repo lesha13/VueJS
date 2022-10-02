@@ -3,7 +3,7 @@ import { createStore } from "vuex";
 const store = createStore({
     state() {
         return {
-            data: [
+            dataStocks: [
                 {
                   "id": 1,
                   "ticker": "AAPL",
@@ -74,13 +74,34 @@ const store = createStore({
                   "price": 29.01,
                   "priceChange": "-7.52%",
                 },
-                {}
+                {},
+            ],
+            dataNews: [
+                {
+                    "id": 1,
+                    "imgSrc": "https://s.yimg.com/ny/api/res/1.2/Q3FY.oRX4zQPhdy.vtBXmg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTM5Nw--/https://s.yimg.com/uu/api/res/1.2/S0Pw4oaDDpagf4ue1WsiIQ--~B/aD02NzU7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/bloomberg_markets_842/1850f80f06e3fa7f6c524ba0c859885e",
+                    "header": "BofA Strategists See Wall Street Rout Forcing Asset Sales",
+                    "text": "(Bloomberg) -- Spiraling losses on Wall Street are now snowballing into forced asset liquidation, according to Bank of America Corp. strategists.",
+                },
+                {
+                    "id": 2,
+                    "imgSrc": "https://s.yimg.com/ny/api/res/1.2/Xl2uKClUVNx_0rZLApCE0A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTM1Mw--/https://s.yimg.com/uu/api/res/1.2/OqQV2fZoIECgwnDv60UAdg--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/Barrons.com/1c9bf358bfe079dfa025d7174f96457b",
+                    "header": "For Long-Term Investors, It’s Time to Buy Tech Again. Here Are 20 Stocks to Look at First.",
+                    "text": "The bear market in software stocks has already lasted far longer than the typical decline, according to MoffettNathanson,",
+                },
+                {
+                    "id": 3,
+                    "imgSrc": "https://s.yimg.com/ny/api/res/1.2/aioX7QuIz2DJcX5inMbUow--/YXBwaWQ9aGlnaGxhbmRlcjt3PTcwNTtoPTM1Mw--/https://s.yimg.com/uu/api/res/1.2/MvtzkezNEHzI_GFhHBjQGQ--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/marketwatch.com/a49d7dec783278ed4cbb040f5230a3e2",
+                    "header": "It was the worst September for stocks since 2002. What that means for October.",
+                    "text": "September more than lives up to its reputation as an ugly month for stocks. Here's what the data says about October performance.",
+                },
             ]
         }
     },
 
     getters: {
-        getStocks: (state) => state.data
+        getStocks: (state) => state.dataStocks,
+        getNews: (state) => state.dataNews,
     },
     
     // mutations: {

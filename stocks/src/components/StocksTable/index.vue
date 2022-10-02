@@ -1,6 +1,6 @@
 <template>
-  <div class="flex-container">
-    <div class="grid-container">
+  <div class="stocks-flex-container">
+    <div class="stocks-grid-container">
       <p>Symbol</p>
       <p>Price $</p>
       <p>Change %</p>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import StocksInfo from "../StocksInfo/index.vue";
+import StocksInfo from "@/components/StocksInfo/index.vue";
 export default {
   name: "StocksTable",
   components: {
@@ -33,13 +33,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.flex-container {
+.stocks-flex-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.grid-container p {
+.stocks-grid-container p {
   display: flex;
   align-items: center;
   justify-content: center;
