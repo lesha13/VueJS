@@ -1,12 +1,12 @@
 <template>
-  <div class="stocks-grid-container">
+  <div class="stocks-grid-container"> 
     <p class="ticker">
       {{ ticker }}
     </p>
     <p class="company-name">
       <a href="https://finance.yahoo.com/">{{ companyName }}</a>
     </p>
-    <p class="price">
+    <p class="price" @click.stop="buyStockAction(ticker)">
       {{ price }}
     </p>
     <p
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: "StocksInfo",
   props: {
@@ -43,6 +45,9 @@ export default {
     gainer() {
       return parseFloat(this.priceChange) > 0;
     },
+  },
+  methods: {
+    ...mapActions(['buyStockAction'])
   },
 };
 </script>

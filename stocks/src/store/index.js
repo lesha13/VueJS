@@ -5,76 +5,65 @@ const store = createStore({
         return {
             dataStocks: [
                 {
-                  "id": 1,
                   "ticker": "AAPL",
                   "companyName": "Apple inc.",
                   "price": 157.37,
                   "priceChange": "+1.88%",
                 },
                 {
-                  "id": 2,
                   "ticker": "AMZN",
                   "companyName": "Amazon inc.",
                   "price": 299.68,
                   "priceChange": "+3.60%",
                 },
                 {
-                  "id": 3,
                   "ticker": "TSLA",
                   "companyName": "Tesla inc.",
                   "price": 133.27,
                   "priceChange": "+4.37%",
                 },
                 {
-                  "id": 4,
                   "ticker": "META",
                   "companyName": "Meta Platforms",
                   "price": 169.15,
                   "priceChange": "+2.66%",
                 },
                 {
-                  "id": 5,
                   "ticker": "AMD",
                   "companyName": "AMD Inc.",
                   "price": 85.45,
                   "priceChange": "+3.23%",
                 },
                 {
-                  "id": 6,
                   "ticker": "TKAYF",
                   "companyName": "Just Eat Takeaway",
                   "price": 17.14,
                   "priceChange": "-21.97%",
                 },
                 {
-                  "id": 7,
                   "ticker": "OCPNY",
                   "companyName": "Olympus Co.",
                   "price": 22.88,
                   "priceChange": "-18.58%",
                 },
                 {
-                  "id": 8,
                   "ticker": "TEFOF",
                   "companyName": "Telefónica, S.A.",
                   "price": 3.7401,
                   "priceChange": "-9.17%",
                 },
                 {
-                  "id": 9,
                   "ticker": "GBTG",
                   "companyName": "GBTG Inc.",
                   "price": 7.53,
                   "priceChange": "-8.28%",
                 },
                 {
-                  "id": 10,
                   "ticker": "RLAY",
                   "companyName": "Relay Therapeutics",
                   "price": 29.01,
                   "priceChange": "-7.52%",
                 },
-                {},
             ],
             dataNews: [
                 {
@@ -95,26 +84,48 @@ const store = createStore({
                     "header": "It was the worst September for stocks since 2002. What that means for October.",
                     "text": "September more than lives up to its reputation as an ugly month for stocks. Here's what the data says about October performance.",
                 },
-            ]
+            ],
+            dataAccountStocks: [
+
+            ],
+            dataAccountBalance: 1000
         }
     },
 
     getters: {
         getStocks: (state) => state.dataStocks,
         getNews: (state) => state.dataNews,
+        getAccountStocks: (state) => state.dataAccountStocks,
+        getAccountBalance: (state) => state.dataAccountBalance,
+        getStocksByTicker: (state) => (ticker) => state.dataStocks.find(item => item.ticker == ticker)
     },
     
-    // mutations: {
-    //     updateValue(state, payload) {
-    //         state.value = payload;
-    //     }
-    // },
+    mutations: {
+        buyStock(state, ticker) {
+          var stock = state.dataStocks.find(item => item.ticker == ticker).price
+          if (stock <= state.dataAccountBalance) {
+              console.log({"ticker": ticker, "amount": 1})
+              state.dataAccountStocks.push({"ticker": ticker, "amount": 1})
+              state.dataAccountBalance -= stock
+              alert("Stock succesfully bought!")
+          }
+          else {
+            alert("Not enough money!")
+          }
+        },
+        sellStock(state, ticker) {
+          state.dataAccountStocks.filter(item => item.ticker != ticker)
+        }
+    },
 
-    // actions: {
-    //     updateValue({commit}, payload) {
-    //         commit('updateValue', payload);
-    //     }
-    // }
+    actions: {
+      buyStockAction({commit}, ticker) {
+        commit("buyStock", ticker);
+      },
+      sellStockAction({commit}, ticker) {
+        commit("sellStock", ticker)
+      }
+    }
 })
 
 export default store

@@ -7,7 +7,7 @@
     </div>
     <stocks-info
       v-for="item in stocksData"
-      :key="item.id"
+      :key="item.ticker"
       :ticker="item.ticker"
       :companyName="item.companyName"
       :price="item.price"
