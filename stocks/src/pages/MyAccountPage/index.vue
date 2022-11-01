@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>My account</h1>
-        <p>{{getAccountBalance}}</p>
+        <p>{{getAccountBalance}}$</p>
         <account-stocks-table :stocksData="getAccountStocks"/>
     </div>
 </template>

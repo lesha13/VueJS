@@ -102,19 +102,34 @@ const store = createStore({
     
     mutations: {
         buyStock(state, ticker) {
-          var stock = state.dataStocks.find(item => item.ticker == ticker).price
-          if (stock <= state.dataAccountBalance) {
+          var stock = state.dataStocks.find(item => item.ticker == ticker)
+          var accountStock = state.dataAccountStocks.find(item => item.ticker == ticker)
+          if (stock.price <= state.dataAccountBalance) {
+            if (accountStock == null) {
               console.log({"ticker": ticker, "amount": 1})
               state.dataAccountStocks.push({"ticker": ticker, "amount": 1})
-              state.dataAccountBalance -= stock
-              alert("Stock succesfully bought!")
+            }
+            else {
+              accountStock.amount += 1
+            }
+            state.dataAccountBalance -= stock.price
+            alert("Stock succesfully bought!")
           }
           else {
             alert("Not enough money!")
           }
         },
         sellStock(state, ticker) {
-          state.dataAccountStocks.filter(item => item.ticker != ticker)
+          var stock = state.dataStocks.find(item => item.ticker == ticker).price
+          var accountStock = state.dataAccountStocks.find(item => item.ticker == ticker)
+          if (accountStock.amount == 1) {
+            state.dataAccountStocks = state.dataAccountStocks.filter(item => item.ticker != ticker)
+          }
+          else {
+            accountStock.amount -= 1
+          }
+          state.dataAccountBalance += stock
+          alert("Stock succesfully sold")
         }
     },
 
